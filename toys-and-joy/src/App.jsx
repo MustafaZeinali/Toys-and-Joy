@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import GetProduct from './components/url/Url'
 import Header from './components/header/Header'
+
 import './App.css'
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <section>
       <Header/>
       <GetProduct/>
+     
     </section>
   )
 }

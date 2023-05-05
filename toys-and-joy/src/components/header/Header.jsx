@@ -9,6 +9,7 @@ const List = styled.ul`
 const Item = styled.li`
     margin : 2rem;
     
+    
 `
 
 const Header = () => {
