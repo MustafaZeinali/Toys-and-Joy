@@ -1,16 +1,23 @@
 import { useState } from 'react'
-import GetProduct from './components/url/Url'
-import Header from './components/header/Header'
 
+import Header from './components/header/Header'
+import getProducts from './data/getProduct.js'
 import './App.css'
+
+const myComponent = () =>(
+
+console.log(getProducts(productid))
+)
 
 function App() {
   
-
+console.log('test');
   return (
     <section>
       <Header/>
-      <GetProduct/>
+      
+      <div> { myComponent }</div>
+      
      
     </section>
   )

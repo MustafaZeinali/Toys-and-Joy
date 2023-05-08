@@ -1,5 +1,5 @@
 import { shopId } from "./constant"
-export const data = [{
+ const data = [{
     action: 'add-product',
     name : 'uppblåsbar familjpool' ,
     description:'det är bra valt för din familj under sommar mått rektangulär 300x180cm ',
@@ -121,10 +121,29 @@ export const data = [{
 },
 {
     action: 'add-product',
-    name : 'twister splash vatten' ,
+    name : 'uppblåsbar limbo' ,
     description:'Ta festen till nästa nivå med vårt uppblåsbara limbospel - det perfekta tillskottet för alla evenemang eller fester!',
     picture: "/image/uppblåsbar-limbo.jpeg" ,
-    price: 179,
+    price: 350,
+    shopid: shopId,
+},
+{
+    action: 'add-product',
+    name : 'kornhål' ,
+    description:"Gör dig redo för lite vänskaplig tävling med vårt klassiska majshålsspel - perfekt för grillning på bakgården, baklucka och mer!",
+    picture: "/image/kornhål.jpeg" ,
+    price: 1799,
+    shopid: shopId,
+},
+{
+    action: 'add-product',
+    name : 'kornhål' ,
+    description:"Get ready for some friendly competition with our classic corn hole game - perfect for backyard barbecues, tailgating, and more!",
+    picture: "/image/kornhål.jpeg" ,
+    price: 1799,
     shopid: shopId,
 }
+
 ]
+
+//export default data;
