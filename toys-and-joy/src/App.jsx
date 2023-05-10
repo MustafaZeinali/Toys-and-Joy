@@ -3,11 +3,9 @@ import { useState } from 'react'
 import Header from './components/header/Header'
 import getProducts from './data/getProduct.js'
 import './App.css'
+import BringData from './components/getProduct/GetProduct'
 
-const myComponent = () =>(
 
-console.log(getProducts(productid))
-)
 
 function App() {
   
@@ -16,8 +14,7 @@ console.log('test');
     <section>
       <Header/>
       
-      <div> { myComponent }</div>
-      
+      <BringData/>
      
     </section>
   )

@@ -1,5 +1,5 @@
 import styled from "styled-components"
-
+import SearchItems from "./InputSearching"
 const List = styled.ul`
     text-decoration: none;
     display : flex ;
@@ -8,22 +8,23 @@ const List = styled.ul`
 `
 const Item = styled.li`
     margin : 2rem;
-    
+
     
 `
 
 const Header = () => {
 
     return(
-        
-        <nav> 
+        <section> 
+         <nav> 
             <List> 
                 <Item> SHOP </Item>
                 <Item> SORT </Item>
                 <Item> LOG IN </Item>
             </List>
-        </nav>
-       
+         </nav>
+            <SearchItems/>
+        </section>
     )
 
 }

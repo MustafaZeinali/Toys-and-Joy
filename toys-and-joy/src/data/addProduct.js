@@ -1,6 +1,7 @@
-import {url, shopId} from './constant.js' ;
+import {url ,shopId} from './constant.js' ;
 
 //import data from './dataOfProducts.js';
+
 
 const data = [{
     action: 'add-product',
@@ -138,44 +139,38 @@ const data = [{
     price: 1799,
     shopid: shopId,
 },
-{
-    action: 'add-product',
-    name : 'kornhål' ,
-    description:"Get ready for some friendly competition with our classic corn hole game - perfect for backyard barbecues, tailgating, and more!",
-    picture: "/image/kornhål.jpeg" ,
-    price: 1799,
-    shopid: shopId,
-}
-
 ]
 
-async function addProduct() {
+async function addProduct(allproducts) {
     console.log('its adding..');
-    
-    const option = {
+   
+    const options = {
         method: 'POST',
         headers:{'Content-type' : 'application/json'},
-        body: JSON.stringify(data)
+        body: JSON.stringify(allproducts)
     }
-    const response = await fetch(url,option)
+    const response = await fetch(url,options)
     const statusObject = await response.json()
     console.log('response from api', statusObject);
 
 }
-/*const object ={
-    name : 'kd',
-    picture : '';
-} */
+
 async function addAllTheProducts() {
-	
-    let products = [1, 2, 3].map(x => ({ ...data, name: 'Water pistol ' + x }))
-	console.log(products)
-	
-	data.forEach(product => {
+	// Detta är bara till för att skapa en array med produkter
+	// Använd din egen data
+	let products = data.map(item => ({action: 'add-product',
+    name: item.name ,
+    description : item.description,
+    price : item.price,
+    picture : item.picture,
+    shopid: item.shopid }))
+	//console.log(products)
+
+	products.forEach(product => {
 		addProduct(product)
 	})
 }
 
-addAllTheProducts()
 
+addAllTheProducts()
 

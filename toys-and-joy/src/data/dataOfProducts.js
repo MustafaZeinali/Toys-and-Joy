@@ -146,4 +146,4 @@ import { shopId } from "./constant"
 
 ]
 
-//export default data;
+export default data;
