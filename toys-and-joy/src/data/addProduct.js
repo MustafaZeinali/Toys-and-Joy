@@ -1,9 +1,9 @@
-import {url ,shopId} from './constant.js' ;
+import {url} from './constant.js' ;
 
-//import data from './dataOfProducts.js';
+import data from './dataOfProducts';
 
 
-const data = [{
+/*const data = [{
     action: 'add-product',
     name : 'uppblåsbar familjpool' ,
     description:'det är bra valt för din familj under sommar mått rektangulär 300x180cm ',
@@ -139,7 +139,7 @@ const data = [{
     price: 1799,
     shopid: shopId,
 },
-]
+]*/
 
 async function addProduct(allproducts) {
     console.log('its adding..');
@@ -173,4 +173,6 @@ async function addAllTheProducts() {
 
 
 addAllTheProducts()
+
+export default addAllTheProducts
 

@@ -4,7 +4,7 @@ import Header from './components/header/Header'
 import getProducts from './data/getProduct.js'
 import './App.css'
 import BringData from './components/getProduct/GetProduct'
-
+import  AddProduct from './components/addProduct/AddProduct'
 
 
 function App() {
@@ -15,6 +15,7 @@ console.log('test');
       <Header/>
       
       <BringData/>
+      <AddProduct/>
      
     </section>
   )

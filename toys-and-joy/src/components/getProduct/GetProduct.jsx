@@ -1,28 +1,33 @@
+import { useEffect, useState } from "react";
+import { url, shopId } from "../../data/constant.js";
+import getProducts from "../../data/getProduct.js";
 
-import { useEffect , useState } from "react";
-import { url , shopId } from "../../data/constant";
-import {getProducts} from "../../data/getProduct.js";
+function BringData() {
+  const [allProducts, setAllProducts] = useState([]);
+  console.log(getProducts);
 
-function BringData(){
-    const [ data , setData ] = useState([]);
+  useEffect(() => {
+    async function fetchData() {
+        setAllProducts(await getProducts());
+    }
+    fetchData();
+  }, []);
 
-    useEffect( () =>{
-        async function fetchData (){
-            const response = await fetch(url)
-            const dataOfSerach = await response.json()
-            console.log('data from api' , dataOfSerach);
-            setData(data.productid,shopId)
-        }
-        fetchData()
-    }, [])
-
-    return(
-        <section>
-            <ul> {data.map((product) => (
-                    <li key={product.id}>{product.name}</li></ul>
-        </section>
-    )
+  return (
+    <section>
+      <ul>
+        {allProducts &&
+          allProducts.map((item) => (
+            <li key={item.productid}>
+              <img src={item.picture} width="100px" height="100px" alt="" />
+              <p>{item.name}</p>
+              <p> {item.description} </p>
+              <p> {item.price} </p>
+            </li>
+          ))}
+      </ul>
+    </section>
+  );
 }
 
-
-export default BringData
+export default BringData;
