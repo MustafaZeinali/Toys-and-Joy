@@ -1,13 +1,13 @@
-import {url , shopId} from './constant.js'
- const oneData =[{
+/*import {url , shopId} from './constant.js'
+ let oneData = {
     action: 'add-product',
     name : 'fgd' ,
     description:'det är bra valt för din familj under sommar mått rektangulär 300x180cm ',
     picture: "/image/uppblåsbar-pool.jpeg" ,
     price: 399,
     shopid: shopId,
-},
-]
+}
+
 
 async function addOneProduct(product) {
     console.log('its adding..');
@@ -41,4 +41,4 @@ async function addTheOneProduct() {
 
 addTheOneProduct()
 
-export default {addTheOneProduct , addOneProduct , oneData}
+export default {addTheOneProduct , addOneProduct , oneData}*/

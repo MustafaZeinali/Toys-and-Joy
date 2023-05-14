@@ -4,7 +4,7 @@ import getProducts from "../../data/getProduct.js";
 
 function BringData() {
   const [allProducts, setAllProducts] = useState([]);
-  console.log(getProducts);
+  
 
   useEffect(() => {
     async function fetchData() {

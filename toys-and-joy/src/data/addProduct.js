@@ -1,9 +1,9 @@
-import {url} from './constant.js' ;
+import {url , shopId} from './constant.js' ;
 
-import data from './dataOfProducts';
+//import data from './dataOfProducts';
 
 
-/*const data = [{
+const data = [{
     action: 'add-product',
     name : 'uppblåsbar familjpool' ,
     description:'det är bra valt för din familj under sommar mått rektangulär 300x180cm ',
@@ -19,7 +19,7 @@ import data from './dataOfProducts';
     price: 1100,
     shopid: shopId,
 },
-{
+/*{
     action: 'add-product',
     name : 'uppblåsbar fåtölje' ,
     description:'en fin och cool produkt för en skönt sommar tyget är solskydd 100x155cm',
@@ -138,11 +138,11 @@ import data from './dataOfProducts';
     picture: "/image/kornhål.jpeg" ,
     price: 1799,
     shopid: shopId,
-},
-]*/
+},*/
+]
 
 async function addProduct(allproducts) {
-    console.log('its adding..');
+    console.log('its adding 1..');
    
     const options = {
         method: 'POST',
@@ -158,7 +158,8 @@ async function addProduct(allproducts) {
 async function addAllTheProducts() {
 	// Detta är bara till för att skapa en array med produkter
 	// Använd din egen data
-	let products = data.map(item => ({action: 'add-product',
+	let products = data.map(item => (
+    {action: 'add-product',
     name: item.name ,
     description : item.description,
     price : item.price,

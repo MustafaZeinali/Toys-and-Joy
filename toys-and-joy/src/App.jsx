@@ -1,10 +1,9 @@
 import { useState } from 'react'
 
 import Header from './components/header/Header'
-import getProducts from './data/getProduct.js'
 import './App.css'
 import BringData from './components/getProduct/GetProduct'
-import  AddProduct from './components/addProduct/AddProduct'
+import AddProduct from './components/addProduct/addproduct'
 
 
 function App() {
@@ -14,7 +13,7 @@ console.log('test');
     <section>
       <Header/>
       
-      <BringData/>
+      
       <AddProduct/>
      
     </section>
@@ -22,3 +21,4 @@ console.log('test');
 }
 
 export default App
+//<BringData/>
