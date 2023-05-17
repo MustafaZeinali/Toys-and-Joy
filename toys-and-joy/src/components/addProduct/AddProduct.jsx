@@ -121,6 +121,7 @@ const AddProduct = () => {
                 picture: "",
                 shopid: shopId,
               });
+
             
               async function addOneProduct(product) { // pass the entire product object as an argument
                 console.log("its adding 2..");
@@ -150,30 +151,50 @@ const AddProduct = () => {
               }
             
               return (
-                <>
+                <section className="form">
+                <form action="" className="form-inputs">
+                  <label htmlFor="" className="name-product">
+                    Name :
                   <input
                     type="text"
                     value={product.name}
                     onChange={(event) =>
                       setProduct({ ...product, name: event.target.value })
                     }
-                  />
-                  <input
+                    
+                  /></label> 
+
+                  <label htmlFor="">
+                    Description :
+                  <textarea
                     type="text"
                     value={product.description}
                     onChange={(event) =>
                       setProduct({ ...product, description: event.target.value })
                     }
-                  />
+                  /></label>
+
+                  <label htmlFor="">Price:  
                   <input
                     type="number"
                     value={product.price}
                     onChange={(event) =>
                       setProduct({ ...product, price: event.target.value })
                     }
-                  />
+                  /></label>
+
+                  <label htmlFor="">Picture :
+                  <input type="file" 
+                  value={product.picture}
+                  onChange={(event) => setProduct({...product, picture : event.target.value})}
+                  /></label>
+
+                  <label htmlFor="" className="add-button">
                   <button onClick={handleAddProduct}>ADD NEW PRODUCT</button>
-                </>
+                  </label>
+
+                  </form>
+                  </section> 
               );
             };
             
