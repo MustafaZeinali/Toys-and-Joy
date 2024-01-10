@@ -14,11 +14,11 @@ console.log('test');
       <Header/>
       
       
-      <AddProduct/>
+      
      
     </section>
   )
 }
 
 export default App
-//<BringData/>
+// <AddProduct/>

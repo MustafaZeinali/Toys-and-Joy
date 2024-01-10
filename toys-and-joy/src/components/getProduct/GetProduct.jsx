@@ -2,9 +2,15 @@ import { useEffect, useState } from "react";
 import { url, shopId } from "../../data/constant.js";
 import getProducts from "../../data/getProduct.js";
 
+
 function BringData() {
   const [allProducts, setAllProducts] = useState([]);
-  
+  const [ nameItem , setNameItem] = useState("");
+
+  // let handleSearch = () =>{
+      
+  //   setNameItem(event => event.target.value).filter(item => item.name.includes(nameItem))
+  // }
 
   useEffect(() => {
     async function fetchData() {
@@ -15,6 +21,10 @@ function BringData() {
 
   return (
     <section>
+      
+      {/* <section>
+          <input value={nameItem} type="text"  onChange={ handleSearch} />
+      </section> */}
       <ul>
         {allProducts &&
           allProducts.map((item) => (
