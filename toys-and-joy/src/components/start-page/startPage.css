@@ -39,9 +39,32 @@ body {
     color:#000;
 }
 
-
-
-
 .radio-btn{
     display: none;
 }
+
+.mid-landing {
+    display: flex;
+    flex-direction: column;
+}
+
+.mid-land-txt{
+    font-size: 2em;
+    margin-top: 1.3em;
+    text-align: center;
+}
+
+.mid-img{
+    display:flex;
+    border-radius: 10px;
+    border: solid 1px red;
+    
+}
+.test{
+    width: 80%;
+    height: 10vh;
+    position: relative;
+    margin: 0em 1em;
+    border-radius: 10px;
+}
+
