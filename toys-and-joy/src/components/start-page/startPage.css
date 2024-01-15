@@ -1,0 +1,47 @@
+body {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+.image-slider{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background:linear-gradient(180deg ,rgb(243, 238, 232),rgb(109, 211, 237)) ;
+    width: 100%;
+    border: solid 1px green;
+}
+.water-pistol{
+    
+    width: 100%;
+    border: solid 1px rgb(245, 20, 20);
+    -webkit-mask-image:  linear-gradient(#000 ,rgba(0, 0,0,0));
+    mask-image: linear-gradient(180deg ,#000 ,rgba(0, 0,0,0));
+}
+
+.water-pistol-d1{
+    border: solid 1px blue;
+    padding: 0em 1em;
+    margin-top:3em ;
+    
+}
+.landing-btn{
+    width: 6em;
+    font-size: 1.3em;
+    margin-bottom: 1em;
+    background-color: rgb(239, 182, 77);
+    padding: .4em;
+    border-radius: .3em;
+    border: none;
+    color:#000;
+}
+
+
+
+
+.radio-btn{
+    display: none;
+}
