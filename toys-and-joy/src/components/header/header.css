@@ -72,3 +72,35 @@
     background-color: #000;
     color: #fff;
 }
+
+@media screen and (min-width:1024px){
+    .desktop-item{
+        display: block;
+    }
+    .mobile-version , .hamburger-menu ,.close-menu{
+        display: none;
+    }
+    .search-input{
+        display: block;
+        height: 2.5em;
+        width: 15em;
+    }
+    .search-item{
+        display: flex;
+        flex-direction: row-reverse;
+        margin-left: 1em;
+        justify-content:space-around;
+
+    }
+    .search-icon{
+        background-color: rgb(34, 166, 34);
+        cursor: pointer;
+        width: 1.5em;
+        height: 1.4em;
+    }
+    .title-item{
+        height: 6vh;
+        display: flex;
+        justify-content: space-evenly;
+    }
+}

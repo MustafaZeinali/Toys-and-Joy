@@ -25,14 +25,14 @@ function BringData() {
       {/* <section>
           <input value={nameItem} type="text"  onChange={ handleSearch} />
       </section> */}
-      <ul>
+      <ul className="container">
         {allProducts &&
-          allProducts.map((item) => (
-            <li key={item.productid}>
+          allProducts.map((item, i) => (
+            <li key={i}>
               <img src={item.picture} width="100px" height="100px" alt="" />
-              <p>{item.name}</p>
-              <p> {item.description} </p>
-              <p> {item.price} </p>
+              <p className="item-name">{item.name}</p>
+              <p className=""> {item.description} </p>
+              <p> {item.price} kr </p>
             </li>
           ))}
       </ul>

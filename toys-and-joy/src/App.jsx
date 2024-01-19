@@ -8,12 +8,12 @@ import AddProduct from './components/addProduct/addproduct'
 
 function App() {
   
-console.log('test');
   return (
     <section>
       <Header/>
-      
-      
+      <AddProduct/>
+      <BringData/>
+     
       
      
     </section>
