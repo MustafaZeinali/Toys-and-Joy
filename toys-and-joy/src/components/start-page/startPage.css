@@ -16,7 +16,7 @@ body {
 }
 .water-pistol{
     
-    width: 100%;
+    width: 200%;
     border: solid 1px rgb(245, 20, 20);
     -webkit-mask-image:  linear-gradient(#000 ,rgba(0, 0,0,0));
     mask-image: linear-gradient(180deg ,#000 ,rgba(0, 0,0,0));

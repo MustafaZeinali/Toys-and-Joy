@@ -1,0 +1,17 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) ;
+}
+
+.container{
+    display: grid;
+    
+}
+
+.item-name{
+    font-size: 2em;
+}

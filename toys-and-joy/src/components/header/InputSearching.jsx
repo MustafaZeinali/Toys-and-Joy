@@ -1,14 +1,12 @@
 import { useState } from "react"
-
+import BringData from "../getProduct/GetProduct";
 
 const SearchItems = () => {
     const [ name , setName] = useState("");
 
     let handleSearch = (event)=>{
         
-            
-        
-        setName(event.target.value)
+        setName(event.target.value).items.filter(item => item.name.includes(name))
     }
     return(
         <section>
@@ -17,4 +15,4 @@ const SearchItems = () => {
     )
 }
 
-export default SearchItems
+//export default SearchItems

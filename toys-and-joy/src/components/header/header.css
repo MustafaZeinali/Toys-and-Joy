@@ -1,0 +1,51 @@
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.main-element nav{
+    display: flex;
+    background-color: rgb(246, 199, 110);
+    padding: 2em;
+    width: 100%;
+}
+
+/* .search-input{
+    display: block;
+    height: 2.5em;
+    width: 15em;
+}
+.search-item{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-left: 1em;
+    justify-content:space-around;
+
+}
+.search-icon{
+    background-color: rgb(34, 166, 34);
+    cursor: pointer;
+    width: 1.5em;
+    height: 1.4em;
+} */
+
+
+
+/* @media screen and (min-width:1024px){
+    .desktop-item{
+        display: flex;
+        width: 100%;
+    }
+    .mobile-version , .hamburger-menu ,.close-menu{
+        display: none;
+    }
+   
+    .title-item{
+        width: 100%;
+        height: 6vh;
+        display: flex;
+        justify-content: space-evenly;
+    }
+} */

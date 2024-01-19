@@ -1,0 +1,25 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.modal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(233, 201, 151);
+    width: 40em;
+    height: 10em;
+}
+.modal div {
+    display: flex;
+    flex-direction: column;
+    width: 20em;
+}
+.log-btn{
+    margin-top: 1em;
+    padding: .5em;
+    align-self: center
+}

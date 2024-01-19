@@ -1,13 +1,4 @@
-/*import {url , shopId} from './constant.js'
- let oneData = {
-    action: 'add-product',
-    name : 'fgd' ,
-    description:'det är bra valt för din familj under sommar mått rektangulär 300x180cm ',
-    picture: "/image/uppblåsbar-pool.jpeg" ,
-    price: 399,
-    shopid: shopId,
-}
-
+import {url , shopId} from './constant.js'
 
 async function addOneProduct(product) {
     console.log('its adding..');
@@ -18,27 +9,28 @@ async function addOneProduct(product) {
         body: JSON.stringify(product)
     }
     const response = await fetch(url,options)
-    const statusObject = await response.json()
+    const statusObject = await response.json(product)
     console.log('response from api', statusObject);
 
 }
+addOneProduct()
 
-async function addTheOneProduct() {
+// async function addTheOneProduct() {
 	
-	let products = oneData.map(item => ({action: 'add-product',
-    name: item.name ,
-    description : item.description,
-    price : item.price,
-    picture : item.picture,
-    shopid: item.shopid }))
-	//console.log(products)
+// 	let products = oneData.map(item => ({action: 'add-product',
+//     name: item.name ,
+//     description : item.description,
+//     price : item.price,
+//     picture : item.picture,
+//     shopid: item.shopid }))
+// 	//console.log(products)
 
-	products.forEach(product => {
-		addOneProduct(product)
-	})
-}
+// 	products.forEach(product => {
+// 		addOneProduct(product)
+// 	})
+// }
 
 
-addTheOneProduct()
+// addTheOneProduct()
 
-export default {addTheOneProduct , addOneProduct , oneData}*/
+export { addOneProduct}

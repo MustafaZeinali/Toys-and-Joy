@@ -14,7 +14,7 @@ async function deleteAll(){
         }
         const response = await fetch(url , options)
         const statusObject = await response.json()
-        console.log('succed' , statusObject);
+        console.log('success' , statusObject);
         
     });
 }
@@ -32,3 +32,5 @@ async function getProductIds() {
 }
 
 deleteAll()
+
+export default deleteAll

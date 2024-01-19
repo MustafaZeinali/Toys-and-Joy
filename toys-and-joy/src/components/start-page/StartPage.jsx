@@ -13,22 +13,22 @@ const StartPage = () => {
     <section>
       <div className="slider-pic container">
         <div className="slides">
-          <div className="radio-btn">
+          {/* <div className="radio-btn">
             <input type="radio" name="radio-btn" id="radio1" />
             <input type="radio" name="radio-btn" id="radio2" />
             <input type="radio" name="radio-btn" id="radio3" />
             <input type="radio" name="radio-btn" id="radio4" />
-          </div>
-          <div className="image-slider">
+          </div> */}
+          {/* <div className="image-slider">
             
             <img src={waterpistol} alt="waterpistol" className="water-pistol" />
            <p className="water-pistol-d1">Grab your water pistol online and turn any day into a water-filled adventure! Stay cool and have a blast with our latest collection.</p> 
            <button className="landing-btn">Beställ den</button>
-          </div>
+          </div> */}
           {/* <div className="image-slider">
             <img src={trampoline} alt="trampoline" style={resizeImage} />
           </div> */}
-          <div className="navigation-auto">
+          {/* <div className="navigation-auto">
             <div className="auto-btn1"></div>
             <div className="auto-btn2"></div>
             <div className="auto-btn3"></div>
@@ -39,7 +39,7 @@ const StartPage = () => {
             <label htmlFor="radio2"></label>
             <label htmlFor="radio3"></label>
             <label htmlFor="radio4"></label>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

@@ -9,12 +9,12 @@ import StartPage from './components/start-page/StartPage'
 
 function App() {
   
-console.log('test');
   return (
     <section>
-      <StartPage/>
-      
-      
+      <Header/>
+      <AddProduct/>
+      <BringData/>
+     
       
      
     </section>
@@ -22,4 +22,4 @@ console.log('test');
 }
 
 export default App
-//<BringData/>
+// <AddProduct/>
