@@ -3,20 +3,42 @@
     margin: 0;
     box-sizing: border-box;
 }
-
+.main-modal{
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+}
+.form-modal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(131, 166, 145);
+    width: 20em;
+    
+}
+.close-tag{
+    align-self: flex-end;
+    margin: .2em;
+    font-size: 2em;
+}
 .modal{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgb(233, 201, 151);
+    
     width: 40em;
     height: 10em;
 }
-.modal div {
+.modal div input{
     display: flex;
     flex-direction: column;
     width: 20em;
+    height: 2em;
+    
+}
+.admininput , .password-input{
+    margin: .5em 0em;
 }
 .log-btn{
     margin-top: 1em;

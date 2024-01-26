@@ -8,7 +8,7 @@ async function addOneProduct(product) {
         headers:{'Content-type' : 'application/json'},
         body: JSON.stringify(product)
     }
-    const response = await fetch(url,options)
+    const response = await fetch(url +  '?action=add-product' ,options)
     const statusObject = await response.json(product)
     console.log('response from api', statusObject);
 

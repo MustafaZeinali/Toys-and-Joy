@@ -1,0 +1,49 @@
+
+
+.form-main{
+    display: flex;
+    justify-content: center;
+
+}
+.register{
+    background-color: rgb(199, 199, 140);
+    width: 20em;
+    
+    
+   
+   
+}
+.register h2 {
+    text-align: center;
+    margin: 2em 0em;
+}
+/* .form-register section{ 
+    display: flex;
+    justify-content: center;
+    align-self: center;
+} */
+.register button{
+   padding: .8em 2em;
+   border: none;
+   margin: 2em 0em;
+   background-color: rgb(109, 135, 25);
+   color: #fff;
+   font-size: .6em;
+}
+.form-register{
+    font-size: 1.3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid 1px red
+}
+
+.form-pass , .form-repeated-pass, .form-user{
+    display: flex;
+    flex-direction: column;
+    margin: .3em 0em;
+} 
+.form-register section input {
+    width: 14em;
+    height: 2em;
+}

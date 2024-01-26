@@ -7,45 +7,40 @@
 
 .main-element nav{
     display: flex;
+    justify-content: space-between;
     background-color: rgb(246, 199, 110);
     padding: 2em;
-    width: 100%;
+    position: sticky;
+    
+}
+.btn-home{
+    font-size: 2em;
 }
 
-/* .search-input{
-    display: block;
-    height: 2.5em;
-    width: 15em;
-}
-.search-item{
-    display: flex;
-    flex-direction: row-reverse;
-    margin-left: 1em;
-    justify-content:space-around;
-
+.search-input{
+    display: none;
+  
 }
 .search-icon{
-    background-color: rgb(34, 166, 34);
-    cursor: pointer;
-    width: 1.5em;
-    height: 1.4em;
-} */
+    font-size: 2em;
+}
+
+.nav-header a {
+    text-decoration: none;
+}
 
 
 
-/* @media screen and (min-width:1024px){
-    .desktop-item{
+@media (min-width: 1080px){
+    .search-item{
         display: flex;
-        width: 100%;
+        flex-direction: row-reverse;
+        flex-wrap: wrap;
+        width: clamp(10em,);
     }
-    .mobile-version , .hamburger-menu ,.close-menu{
-        display: none;
+    .search-input{
+        display: block;
     }
-   
-    .title-item{
-        width: 100%;
-        height: 6vh;
-        display: flex;
-        justify-content: space-evenly;
-    }
-} */
+}
+
+
