@@ -1,0 +1,41 @@
+
+
+
+.u-container{
+    display: flex;
+    justify-content: center;
+}
+.u-1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(140, 165, 129);
+    margin: 1em 0rem;
+    padding: 1em;
+}
+.u-1 h2 {
+    margin-top: 1em;
+}
+.u-1 section li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em;
+    background-color: rgb(201, 217, 138);
+    padding: .5em;
+    font-size: 1.2em;
+    border-radius: .3em;
+    box-shadow: 5px 3px 10px 1px rgba(0 , 0 , 0, 0.4);
+}
+.u-1 section li:hover {
+    scale: 1.1;
+}
+.u-1 section li button {
+    margin-left: 5em ;
+    padding: .5em;
+    border: none;
+    background-color: rgb(244, 128, 128);
+    color: #fff;
+    font-size: 1em;
+    border-radius: .2em;
+}

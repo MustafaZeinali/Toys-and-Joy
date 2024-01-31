@@ -2,7 +2,8 @@ import styled from "styled-components";
 import "./header.css";
 import { NavLink } from "react-router-dom";
 
-import { IoSearchOutline } from "react-icons/io5";
+
+import { BsCart4 } from "react-icons/bs";
 
 // import { HomeIcon } from "@mui/icons-material/home";
 import { HiHome } from "react-icons/hi";
@@ -11,10 +12,7 @@ const Header = () => {
   return (
     <section className="main-element">
       <nav className="nav-header">
-        <div className="search-item">
-          <input type="text" className="search-input" placeholder="Sök" />
-          <IoSearchOutline className="search-icon" />
-        </div>
+       
         <NavLink to={"/"}>
           <HiHome className="btn-home"/>
         </NavLink>
@@ -26,6 +24,11 @@ const Header = () => {
         <NavLink to={"/admin"}>
           <div className="login"> Logga in </div>
         </NavLink>
+
+        <NavLink to={"/cart"}>
+          <BsCart4 className="cart-shop"/>
+        </NavLink>
+
       </nav>
     </section>
   );

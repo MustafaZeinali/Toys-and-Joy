@@ -1,10 +1,10 @@
 import { url ,shopId } from "./constant.js";
 
-async function getUser(oneUser){
+async function getUser(allUsers){
     console.log('getting user...');
 
     const response = await fetch (url + '?action=get-users&shopid=' + shopId)
-    const data = await response.json(oneUser);
+    const data = await response.json(allUsers);
 
     console.log('response from API...' , data);
 

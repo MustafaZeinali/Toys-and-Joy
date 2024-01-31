@@ -8,6 +8,7 @@
 .main-element nav{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: rgb(246, 199, 110);
     padding: 2em;
     position: sticky;
@@ -17,13 +18,10 @@
     font-size: 2em;
 }
 
-.search-input{
-    display: none;
-  
-}
-.search-icon{
+.cart-shop{
     font-size: 2em;
 }
+
 
 .nav-header a {
     text-decoration: none;
