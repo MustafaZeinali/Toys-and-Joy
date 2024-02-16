@@ -1,4 +1,4 @@
-import {url , shopId} from './constant.js'
+import {url , shopId} from '../constant.js'
 
 
 async function getProducts() {

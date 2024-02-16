@@ -7,6 +7,7 @@ import StartPage from "../components/start-page/StartPage"
 import RegisterUser from "../components/registerUser/RegisterUser";
 import BringUser from "../components/user/GetUser";
 import DetailsItem from "../components/detail-item/detailsItem";
+import Cart from "../components/cart/Cart";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
     {
         path: "/product/:id",
         element: <DetailsItem/>,
+    },
+    {
+      path: "/cart",
+      element: <Cart/>
     }
 
     ],

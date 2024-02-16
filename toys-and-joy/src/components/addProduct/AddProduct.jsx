@@ -18,23 +18,7 @@ const AddProduct = () => {
   const addItem = async () => {
     await addOneProduct(product);
   }
-  // const addItem = addOneProduct();
-  // useEffect(()=> {
-  //   const addItem = async () => { await addOneProduct(product)}  
-  // },[])
-  // async function addOneProduct(product) { // pass the entire product object as an argument
-  //   console.log("its adding 2..");
-
-  //   const options = {
-  //     method: "POST",
-  //     headers: { "Content-type": "application/json" },
-  //     body: JSON.stringify(product), // pass the entire product object as the request body
-  //   };
-
-  //   const response = await fetch(url, options);
-  //   const statusObject = await response.json();
-  //   console.log("response from api", statusObject);
-  // }
+ 
 
  async function handleAddProduct(e) {
     e.preventDefault();

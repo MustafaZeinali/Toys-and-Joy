@@ -1,57 +1,98 @@
 import { useEffect, useState } from "react";
-import getProducts from "../../data/getProduct.js";
+import getProducts from "../../data/product/getProduct.js";
 import { IoSearchOutline } from "react-icons/io5";
 import "./GetProduct.css";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";  
-function BringData() {
-  const [allProducts, setAllProducts] = useState([]);
-  // const [ showItem , setShowItem] = useState(false);
-  const [isClicked , setIsClicked] = useState(false);
- 
-  const navigate = useNavigate()
-  
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { ToyContext } from "../../routes/ContextRoot.jsx";
 
-  const handleClick = (id) =>{
-    console.log('it is clicked', id);
+function BringData() {
+  const { allProducts, setAllProducts, islogined } = useContext(ToyContext);
+  const [searchItem, setSearchItem] = useState("");
+  const [sortedproducts, setSortedProducts] = useState([]);
+  // const [ showItem , setShowItem] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleClick = (id) => {
+    console.log("it is clicked", id);
     navigate("/product/" + id);
-  }
-  // useEffect( () =>{
-  //  const getId = async () => {
-  //   try{
-  //     setIsClicked(getProducts(id))
-  //   }catch(err){
-  //     console.log('error' , err);
-  //   }
-  //  }
-  //  getId
-  // },[allProducts])
- 
+  };
+
   useEffect(() => {
     async function fetchData() {
+      if (allProducts.length < 1) {
         setAllProducts(await getProducts());
+      }
     }
     fetchData();
   }, []);
 
+  const handleSortedChange = (e) => {
+    const selectedOption = e.target.value;
+    let sortedItems = [...allProducts];
+
+    if (selectedOption === "lowToHigh") {
+      sortedItems.sort((a, b) => a.price - b.price);
+    } else if (selectedOption === "alphabetical") {
+      sortedItems.sort((a, b) => (a.name.localeCompare(b.name)));
+    }
+    setSortedProducts(sortedItems);
+  };
+
+  // sortera product enligt namn
+  const filterProduct = (e) => {
+    setSearchItem(e.target.value.toLowerCase());
+  };
+  const searchProducts = () => {
+    let searchProduct = allProducts.filter((product) =>
+      product.name.toLowerCase().includes(searchItem)
+    );
+    console.log(searchProduct);
+    return searchProduct;
+  };
+
+  //sortera enligt pris
+
+  // const lowToHighPrice =() =>{
+
+  //  let productSortedByPrice = allProducts.sort((a, b) => a.price - b.price);
+  //  return productSortedByPrice
+
+  // }
+  // const sortProducts = handleSortedChange(searchProducts);
+
   return (
     <section>
       <div className="feature-item">
-      <div className="search-item">
-          <input type="text" className="search-input" placeholder="Sök" />
-          <IoSearchOutline className="search-icon" />
+        <div className="search-item">
+          <input
+            type="text"
+            onChange={filterProduct}
+            className="search-input"
+            placeholder="Sök"
+          />
+          <IoSearchOutline className="search-icon" onClick={searchProducts} />
         </div>
-        <select name="" id="">
+
+        <select onChange={handleSortedChange}>
           <option value="">Filter</option>
-          <option value=""> A-Ö </option>
-          <option value=""> biligaste till dyraste</option>
+          <option value="lowToHigh">bil-dyr</option>
+          <option value="alphabatical"> a-ö</option>
         </select>
-        </div>
+      </div>
       <ul className="container">
-        {allProducts &&
-          allProducts.map((item, id) => (
-            <li  onClick={() =>{handleClick(item.id)}}  className="item-cart" key={id}>
-              <img  src={item.picture}  alt="" />
+        {sortedproducts &&
+          sortedproducts.map((item, id) => (
+            <li
+              onClick={() => {
+                handleClick(item.id);
+              }}
+              className="item-cart"
+              key={id}
+            >
+              <img src={item.picture} alt="" />
               <p className="item-name">{item.name}</p>
               <p className="item-description"> {item.description} </p>
               <p className="item-price"> {item.price} kr </p>

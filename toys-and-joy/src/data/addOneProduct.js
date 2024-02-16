@@ -13,7 +13,6 @@ async function addOneProduct(product) {
     console.log('response from api', statusObject);
 
 }
-addOneProduct()
 
 // async function addTheOneProduct() {
 	

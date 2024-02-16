@@ -1,0 +1,36 @@
+
+
+.form-details{
+    display: flex;
+    justify-content: center;
+    
+    margin: 2em ;
+    
+}
+
+.item-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color:rgb(136, 179, 237);
+    border-radius: 10px;
+}
+.item-details-name , .item-details-price , .img-item {
+    margin: .6em;
+   
+}
+.img-item {
+    width: 90%;
+    object-fit: contain;
+    border-radius: 10px;
+}
+.btn-details {
+    padding: 1em 2em;
+    margin-bottom: 1em;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    background-color: rgb(65, 174, 127);
+    color: #fff;
+}

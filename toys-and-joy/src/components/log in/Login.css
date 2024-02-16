@@ -1,8 +1,4 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
+
 .main-modal{
     display: flex;
     justify-content: center;
@@ -13,12 +9,16 @@
     flex-direction: column;
     align-items: center;
     background-color: rgb(131, 166, 145);
-    width: 20em;
+    width: clamp(17em , 50%, 25em);
+    height: 20em;
     
+}
+.form-modal h2 {
+    margin-bottom: 1.5em ;
 }
 .close-tag{
     align-self: flex-end;
-    margin: .2em;
+    margin: .1em;
     font-size: 2em;
 }
 .modal{
@@ -26,23 +26,23 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
-    width: 40em;
     height: 10em;
 }
 .modal div input{
     display: flex;
     flex-direction: column;
-    width: 20em;
+    width: clamp(14em, 70% , 5em);
     height: 2em;
     
 }
 .admininput , .password-input{
-    margin: .5em 0em;
+    margin: .7em 0em;
 }
 .log-btn{
     margin: 1em 0em;
     padding: .5em;
-    align-self: center
+    align-self: center;
+    border: none;
+    
 
 }
