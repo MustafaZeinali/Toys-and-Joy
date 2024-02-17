@@ -13,9 +13,28 @@ const Login = () => {
   // const [showRepeatPassword , setShowRepeatPassword] = useState(false);
   const [showRegisterForm, setShowRegisterForm] = useState(false);
   const [showLoginForm, setShowLoginForm] = useState(true);
-  const { isLogined , setIsLogined, isInvisible ,setIsInvisible } = useContext(ToyContext);
+  const { isLogined, setIsLogined } = useContext(ToyContext);
   const navigate = useNavigate();
+  const [reisterUsername, setRegisterUsername] = useState("");
+  const [registerpassword, setRegisterPassword] = useState("");
+  const [repeatedPassword, setRepeatedPassword] = useState("");
+  
 
+ 
+   
+  // register new user
+  const registerClick =  (e) => {
+    e.preventDefault();
+    console.log('it is adding 11...');
+    
+    if (password === repeatedPassword) {
+
+    }
+  addUser({shopid: shopId, username: username, password: password});
+  
+  }
+
+  // user or admin login 
   const handleLogin = async (e) => {
     e.preventDefault();
     const statusLogin = await verifyUser({
@@ -34,24 +53,37 @@ const Login = () => {
     }
   };
 
+  // show login form
   const handleCreateAccount = () => {
-    setShowRegisterForm(true)
-    setShowLoginForm(false); 
-  }
+    console.log("loginform is clicked");
+    
+    setShowRegisterForm(false)
 
-  const showLogin = () => {
-    setIsInvisible(!isInvisible);
-    console.log('it is login');
-  }
+    
+  };
 
+  // show register form
+  const showRegisterFormClick = () => {
+    setShowRegisterForm(true);
+    setShowLoginForm(false);
+    console.log("register form clicked");
+  };
+ 
   return (
+    
+
+    
     <div className="main-modal">
-      { showLoginForm && <form className="form-modal">
-        <IoCloseSharp onClick={() => navigate.goBack()} className="close-tag" />
+      <form className="form-modal">
+        <IoCloseSharp onClick={() => navigate(-1)} className="close-tag" />
         <h2>
-          <span> inloggning  </span>/<span> Register</span>
+          <span onClick={handleCreateAccount}> inloggning </span>/
+          <span onClick={showRegisterFormClick} > Register</span>
         </h2>
-        <section className="modal">
+        <section
+          className="modal"
+          style={{ display: showRegisterForm ? "none" : "block" }}
+        >
           <div className="admin-input">
             <label htmlFor="admin">Admin</label>
             <input
@@ -70,22 +102,67 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-      
-        
+
           <div>
             <button type="button" className="log-btn" onClick={handleLogin}>
               Logga in
             </button>
+          </div>
 
-          </div>
-          <div>  { showRegisterForm && <RegisterUser/> }  </div>
-          <div>
+
+          {/* <div>
           <button type="button" className="create-account-btn" onClick={handleCreateAccount}> skaffa konto </button>
-          </div>
-          
+          </div> */}
         </section>
-      </form> }
-    </div> 
+        <div>
+          {" "}
+          {/* {!showLoginForm ? showRegisterForm && <RegisterUser /> : null}{" "} */}
+        </div>
+        <section className="register-from" style={{ display: !showRegisterForm ? "none" : "block" }} >
+         <div className="form-user"  >
+              <label htmlFor="register-username">Username </label>
+              <input
+                type="text"
+                name="register-username"
+                id="register-username"
+                autoComplete="username"
+                onChange={(e) => setRegisterUsername(e.target.value)}
+              />
+            </div>
+            <div className="form-pass">
+              <label htmlFor="register-password">Password </label>
+              <input
+                type="password"
+                name="register-password"
+                id="register-password"
+                autoComplete="current-password"
+                onChange={(e) => setRegisterPassword(e.target.value)}
+              />
+            </div>
+            <div className="form-repeated-pass">
+              <label htmlFor="repeatpassword">repeat Password </label>
+              <input
+                type="password"
+                name="repeatpassword"
+                id="repeatpassword"
+                autoComplete="current-password"
+                onChange={(e) => setRepeatedPassword(e.target.value)}
+              />
+            </div>
+            <div>
+              <button className="btn-register" onClick={registerClick}>
+                Registera
+              </button>
+            </div>
+            </section>
+      </form>
+      
+      </div>
+
+    
+
+    
+    
   );
 };
 

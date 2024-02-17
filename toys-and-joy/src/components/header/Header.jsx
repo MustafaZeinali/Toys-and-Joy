@@ -9,13 +9,13 @@ import { BsCart4 } from "react-icons/bs";
 import { HiHome } from "react-icons/hi";
 
 const Header = () => {
-  const { isInvisible , setInvisible} = useContext(ToyContext)
+  // const { isInvisible , setInvisible} = useContext(ToyContext)
 
-  const showLoginFrom = () => {
+  // const showLoginFrom = () => {
     
-      setInvisible(isInvisible)
-    console.log('showLoginFrom');
-  }
+  //     setInvisible(isInvisible)
+  //   console.log('showLoginFrom');
+  // }
   return (
     <section className="main-element">
       <nav className="nav-header">
@@ -29,7 +29,7 @@ const Header = () => {
         </NavLink>
 
           <NavLink to={"/admin"}>
-          <div className="login" onClick={showLoginFrom}> Logga in </div>
+          <div className="login" > Logga in </div>
         </NavLink> 
 
         <NavLink to={"/cart"}>
