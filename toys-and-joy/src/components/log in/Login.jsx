@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import { shopId } from "../../data/constant.js";
 import { useNavigate } from "react-router-dom";
 import { ToyContext } from "../../routes/ContextRoot";
+import addUser from "../../data/addUser";
 import RegisterUser from "../registerUser/RegisterUser";
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -15,24 +16,11 @@ const Login = () => {
   const [showLoginForm, setShowLoginForm] = useState(true);
   const { isLogined, setIsLogined } = useContext(ToyContext);
   const navigate = useNavigate();
-  const [reisterUsername, setRegisterUsername] = useState("");
+  const [registerUsername, setRegisterUsername] = useState("");
   const [registerpassword, setRegisterPassword] = useState("");
   const [repeatedPassword, setRepeatedPassword] = useState("");
   
 
- 
-   
-  // register new user
-  const registerClick =  (e) => {
-    e.preventDefault();
-    console.log('it is adding 11...');
-    
-    if (password === repeatedPassword) {
-
-    }
-  addUser({shopid: shopId, username: username, password: password});
-  
-  }
 
   // user or admin login 
   const handleLogin = async (e) => {
@@ -68,6 +56,18 @@ const Login = () => {
     setShowLoginForm(false);
     console.log("register form clicked");
   };
+
+  // register new User
+  const registerUser = (e) => {
+    e.preventDefault();
+    console.log('it is clicking ...');
+    if (password === repeatedPassword) {
+      
+    }
+    addUser({shopid: shopId, username: registerUsername, password: registerpassword});
+
+  
+  }
  
   return (
     
@@ -122,6 +122,7 @@ const Login = () => {
          <div className="form-user"  >
               <label htmlFor="register-username">Username </label>
               <input
+              value={registerUsername}
                 type="text"
                 name="register-username"
                 id="register-username"
@@ -132,6 +133,7 @@ const Login = () => {
             <div className="form-pass">
               <label htmlFor="register-password">Password </label>
               <input
+              value={registerpassword}
                 type="password"
                 name="register-password"
                 id="register-password"
@@ -142,6 +144,7 @@ const Login = () => {
             <div className="form-repeated-pass">
               <label htmlFor="repeatpassword">repeat Password </label>
               <input
+              value={repeatedPassword}
                 type="password"
                 name="repeatpassword"
                 id="repeatpassword"
@@ -150,7 +153,7 @@ const Login = () => {
               />
             </div>
             <div>
-              <button className="btn-register" onClick={registerClick}>
+              <button className="btn-register" onClick={registerUser}>
                 Registera
               </button>
             </div>

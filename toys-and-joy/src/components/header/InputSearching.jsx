@@ -3,7 +3,7 @@ import BringData from "../getProduct/GetProduct";
 import { ToyContext } from "../../routes/ContextRoot";
 const SearchItems = () => {
     const { allProducts , setAllProducts } = useContext(ToyContext)
-    const [searchItem, setSearchItem] = useState(allProducts);
+    
 
     
     

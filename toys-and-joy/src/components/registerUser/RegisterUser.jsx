@@ -14,15 +14,15 @@ const RegisterUser = () => {
     e.preventDefault();
     console.log('it is clicking ...');
     if (password === repeatedPassword) {
-
+      addUser({shopid: shopId, username: username, password: password});
     }
-  addUser({shopid: shopId, username: username, password: password});
+ 
   
   }
  
   
   return (
-    <div className="form-main">
+    <div className="form-main-register">
       <article className="register">
         <h2>Register new user</h2>
         <form className="form-register">
