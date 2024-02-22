@@ -15,6 +15,11 @@ const AddProduct = () => {
     picture: "",
     shopid: shopId,
   });
+  const [nameError , setNameError] = useState(false)
+  const [descriptionError , setDescriptionError] = useState(false)
+  const [priceError , setPriceError] = useState(false)
+  const [pictureError , setPictureError] = useState(false)
+
   const addItem = async () => {
     await addOneProduct(product);
   }
@@ -34,6 +39,76 @@ const AddProduct = () => {
     const result = await addItem(newProduct);
     return result // pass the newProduct object to addOneProduct
   }
+  // validation name of product
+  const handleValidateName = (e) => {
+    const validationName =  e.target.value
+    setProduct({...product, name: validationName})
+    validateName(validationName)
+  }
+
+  const validateName = (value) => {
+    const regexName =  /^[a-öA-Ö\s]{2,20}$/;
+    if(!value.trim() || !regexName.test(value)){
+      setNameError(true)
+      console.log("it works1");
+    }
+  
+  else {
+    setNameError("")
+    console.log("it works3");
+  }
+  }
+
+  // {(event) =>
+  //   setProduct({ ...product, name: event.target.value })
+  // }
+  // validation description of product 
+  const handleValdateDescription = (e) => {
+    const updateDescription = e.target.value
+    setProduct({...product, description: updateDescription})
+    validateDescription(updateDescription)
+  
+  } 
+  const validateDescription = (value) => {
+    const regexDescription =  /^[\w\s"'-.,!?:a-öA-Ö]{2,70}$/i;
+    if(!value.trim() || !regexDescription.test(value)){
+      setDescriptionError(true)
+    }else{
+      setDescriptionError(false)
+    }
+  }
+
+  const handleValidatePrice = (e) => {
+    const updatePrice = e.target.value
+    setProduct({...product, price: updatePrice})
+    validatePrice(updatePrice)
+  } 
+
+  const validatePrice = (value) => {
+    const regexPrice = /^[0-9]{2,8}$/;
+    if(!value.trim() || !regexPrice.test(value)){
+      setPriceError(true)
+  }else{
+    setPriceError("")
+  }
+}
+  const handleValidatePicture = (e) => {
+    const updatePicture = e.target.value
+    setProduct({...product, picture: updatePicture})
+    ValidatePicture(updatePicture)
+  }
+
+  const ValidatePicture = (value) => {
+    const regexPicture =   /^(ftp|http|https):\/\/[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*([\/\?#][^\s]*)?$/;
+    //  /^(http(s)?:\/\/(www\.)?\w[-/#%&.?]{2,}\.[a-z]{2,}([\w-/#%&.?]*)?)$/;
+     
+
+    if(!value.trim() || !regexPicture.test(value)) {
+      setPictureError(true);
+    }else{
+      setPictureError("");
+    }
+  }
 
   return (
     <section className="form">
@@ -43,43 +118,41 @@ const AddProduct = () => {
           <input
             type="text"
             value={product.name}
-            onChange={(event) =>
-              setProduct({ ...product, name: event.target.value })
-            }
+            onChange={handleValidateName}
           />
+          {nameError? <p> ogiltigt namn fyll i rätt</p> : null}
         </label>
 
-        <label htmlFor="">
+        <label htmlFor="" className="description-product">
           Description :
           <textarea
             type="text"
             value={product.description}
-            onChange={(event) =>
-              setProduct({ ...product, description: event.target.value })
-            }
+            onChange={ handleValdateDescription}
           />
+          {descriptionError? <p>ogiltig </p> : null}
         </label>
 
-        <label htmlFor="">
+        <label htmlFor="" className="price-product">
           Price:
           <input
             type="number"
             value={product.price}
-            onChange={(event) =>
-              setProduct({ ...product, price: event.target.value })
-            }
+            onChange={handleValidatePrice}
           />
+          {priceError? <p>ogiltig </p> : null}
         </label>
 
-        <label htmlFor="">
+        <label htmlFor="" className="picture-product">
           Picture :
           <input
             type="url"
             value={product.picture}
-            onChange={(event) =>
-              setProduct({ ...product, picture: event.target.value })
+            onChange={handleValidatePicture
             }
+            
           />
+          {pictureError? <p>ogiltig url</p> : null} 
         </label>
         
 

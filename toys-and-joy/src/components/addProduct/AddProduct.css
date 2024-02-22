@@ -4,7 +4,6 @@
 }
 
 .form{
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,19 +20,20 @@
     box-shadow: rgba(00, 00, 00, 0.5) 10px 10px 40px 0px;
     border-radius: 6px;
 }
-
+.name-product , .description-product , .price-product , .picture-product {
+    margin-bottom: 1em;
+}
 .name-product{
     padding-top: 1rem;
 }
 .form-inputs  label > input , textarea{
     position: relative;
     width: 20rem;
-    height: 1.5rem;
+    height: 2em;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 1px solid black;
-    margin-bottom: 1rem;
+    
 }
 .add-button{
     padding: 1rem;

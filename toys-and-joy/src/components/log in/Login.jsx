@@ -1,6 +1,6 @@
 import "./Login.css";
 import verifyUser from "../../data/verifyUser.js";
-import { IoCloseSharp } from "react-icons/io5";
+import { IoCloseSharp, IoLogIn } from "react-icons/io5";
 import { useContext, useState } from "react";
 import { shopId } from "../../data/constant.js";
 import { useNavigate } from "react-router-dom";
@@ -18,7 +18,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [registerUsername, setRegisterUsername] = useState("");
   const [registerpassword, setRegisterPassword] = useState("");
-  const [repeatedPassword, setRepeatedPassword] = useState("");
+  const [repeatedPassword, setRepeatedPassword] = useState(false);
   
 
 
@@ -62,9 +62,12 @@ const Login = () => {
     e.preventDefault();
     console.log('it is clicking ...');
     if (password === repeatedPassword) {
-      
+      addUser({shopid: shopId, username: registerUsername, password: registerpassword});
+    }else{
+      console.log("its wronmg");
+      setRepeatedPassword(!repeatedPassword);
     }
-    addUser({shopid: shopId, username: registerUsername, password: registerpassword});
+    
 
   
   }
@@ -92,6 +95,7 @@ const Login = () => {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
+           
           </div>
           <div className="password-input">
             <label htmlFor="password">Lösenord</label>
@@ -102,7 +106,7 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-
+          {IoLogIn? <p>fel användernamn / lösenord</p> : null}
           <div>
             <button type="button" className="log-btn" onClick={handleLogin}>
               Logga in
@@ -129,6 +133,7 @@ const Login = () => {
                 autoComplete="username"
                 onChange={(e) => setRegisterUsername(e.target.value)}
               />
+              {}
             </div>
             <div className="form-pass">
               <label htmlFor="register-password">Password </label>
@@ -152,6 +157,7 @@ const Login = () => {
                 onChange={(e) => setRepeatedPassword(e.target.value)}
               />
             </div>
+            {repeatedPassword? <p>sätt in rätt lösenord</p> : null}
             <div>
               <button className="btn-register" onClick={registerUser}>
                 Registera
