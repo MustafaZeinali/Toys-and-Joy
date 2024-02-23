@@ -21,7 +21,12 @@ const AddProduct = () => {
   const [pictureError , setPictureError] = useState(false)
 
   const addItem = async () => {
+    if( !nameError && !descriptionError && !priceError && !pictureError) {
     await addOneProduct(product);
+    }
+    else{
+      console.log('fel');
+    }
   }
  
 

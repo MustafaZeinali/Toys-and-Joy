@@ -12,12 +12,14 @@ const BringUser = () => {
   const navigate = useNavigate();
   const [showUser, setShowUser] = useState([]);
   const [upadteUser, setUpadteUser] = useState([]);
+  const { isLoggedOut , setIsLoggedOut } = useContext(ToyContext)
   // const [deleteUser, setDeleteUser] = useState({shopid: "", userid: ""});
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await getUser();
         setShowUser(data);
+        setIsLoggedOut(!isLoggedOut);
       } catch (err) {
         console.log("Error fetching", err);
       }
@@ -61,6 +63,7 @@ const BringUser = () => {
   return (
     <div>
       <form className="u-container">
+        <p className="loggar-ut" onClick={() => navigate(-1)}>logga ut</p>
         <article className="u-1">
           <h2>Users</h2>
           <section>

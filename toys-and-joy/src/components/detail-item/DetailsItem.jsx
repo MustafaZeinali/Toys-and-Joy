@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams ,useNavigate } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import getProducts from "../../data/product/getProduct.js";
 import deleteProduct from "../../data/product/deleteProduct.js";
@@ -16,6 +16,7 @@ const DetailsItem = () => {
   // det kommer att vara inputfält istället för p-taggar så man enkelt kan byta ut texten
   // lägga till en 'klar'-knapp
   // när man klickar på 'klar' ska produkten uppdateras i context (setAllProducts)
+  const navigate = useNavigate()
   console.log(isLogined);
   const { id } = useParams();
   // fetch på produkterna
@@ -65,50 +66,72 @@ const DetailsItem = () => {
     // gör en kopia på gamla listan över produkter
     let productsList = [...allProducts];
     // find index of Updated Product In Old Product List
-    let index = productsList.findIndex(
-      (p) => p.id === product.id
-    );
+    let index = productsList.findIndex((p) => p.id === product.id);
     // skicka in den uppdaterade produkten till de andra produkterna
     productsList.splice(index, 1);
     // uppdatera statet
     setAllProducts(productsList);
-
+    // console.log(productsList);
     // uppdatera API:et med
     deleteProduct(product.id);
+    // console.log(deleteProduct(product.id));
   };
 
   return (
     <div>
-      {!isLogined ? (
-        <section className="form-details">
+      {isLogined ? <p className="loggar-ut" onClick={() => navigate(-3)}>logga ut</p> : null}
+      {isLogined ? (
+        <form className="form-details">
           <article className="item-details-container">
             <img className="img-item" src={product.picture} alt="" />
-            <input
-              defaultValue={product.name}
-              onChange={(e) => setEditName(e.target.value)}
-            />
-            <input
-              defaultValue={product.description}
-              onChange={(e) => setEditDesc(e.target.value)}
-            />
-            <input
-              defaultValue={product.price}
-              onChange={(e) => setEditPrice(e.target.value)}
-            />
-            <button className="btn-details" onClick={saveBtn}>
-              Spara
-            </button>
-            <button className="btn-details red" onClick={removeItem}>
-              ta bort
-            </button>
+            <section className="input-details-container">
+              <div className=" input-details">
+                <label htmlFor="name"> namn: </label>
+                <input
+                className="input-name-details"
+                  id="name"
+                  defaultValue={product.name}
+                  onChange={(e) => setEditName(e.target.value)}
+                />
+              </div>
+
+              <div className=" input-details">
+                <label className="label-description"
+                htmlFor="description">beskrivning:</label>
+                {" "}
+                <textarea 
+                name="description"
+                className="textarea-description-details"
+                  defaultValue={product.description}
+                  onChange={(e) => setEditDesc(e.target.value)}
+                />{" "}
+              </div>
+              
+              <div  className=" input-details">
+              <label htmlFor="price">pris:</label>
+                <input name="price" className="input-price-details"
+                  defaultValue={product.price}
+                  onChange={(e) => setEditPrice(e.target.value)}
+                />
+              </div>
+              <div>
+                
+                <button className="btn-details" onClick={saveBtn}>
+                  Spara
+                </button>
+                <button className="btn-details red" onClick={removeItem}>
+                  ta bort
+                </button>
+              </div>
+            </section>
           </article>
-        </section>
+        </form>
       ) : (
         <section className="form-details">
           <article className="item-container">
             <img className="img-item" src={product.picture} alt="" />
             <h2>{product.name}</h2>
-            <p className="item-detlais-name">{product.description}</p>
+            <p className="item-details-description">{product.description}</p>
             <p className="item-details-price">{product.price} kr</p>
             <button className="btn-details" onClick={addToCart}>
               lägg till

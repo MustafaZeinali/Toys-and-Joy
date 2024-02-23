@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { ToyContext } from "../../routes/ContextRoot";
 import { BsCart4 } from "react-icons/bs";
-
+import { FaPlus } from "react-icons/fa";
 // import { HomeIcon } from "@mui/icons-material/home";
 import { HiHome } from "react-icons/hi";
 
@@ -33,7 +33,7 @@ const Header = () => {
         </NavLink> 
 
         <NavLink to={"/cart"}>
-          <BsCart4 className="cart-shop"/>
+          <BsCart4 className="cart-shop"/><FaPlus className="cart-plus" />
         </NavLink>
 
       </nav>

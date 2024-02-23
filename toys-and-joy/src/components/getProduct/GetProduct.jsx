@@ -8,9 +8,10 @@ import { useContext } from "react";
 import { ToyContext } from "../../routes/ContextRoot.jsx";
 
 function BringData() {
-  const { allProducts, setAllProducts, islogined } = useContext(ToyContext);
+  const { allProducts, setAllProducts, isLogined } = useContext(ToyContext);
   const [searchItem, setSearchItem] = useState("");
-  const [sortedproducts, setSortedProducts] = useState([]);
+  const [sortedProducts, setSortedProducts] = useState([]);
+  // const [sortPrice , setSortPrice] = useState([]);
   // const [ showItem , setShowItem] = useState(false);
 
   const navigate = useNavigate();
@@ -28,31 +29,57 @@ function BringData() {
     }
     fetchData();
   }, []);
+  // useEffect(() => {
+  //   const filtered = allProducts.filter((product) =>
+  //     product.name.toLowerCase().includes(searchItem)
+  //   );
+  //   setFilteredProducts(filtered);
+  // }, [searchItem, allProducts]);
+  // const handleSortedChange = (e) => {
+  //   const selectedOption = e.target.value;
+  //   let sortedItems = [...allProducts];
 
-  const handleSortedChange = (e) => {
-    const selectedOption = e.target.value;
-    let sortedItems = [...allProducts];
+  //   if (selectedOption === "lowToHigh") {
+  //     sortedItems.sort((a, b) => a.price - b.price);
+  //   } else if (selectedOption === "alphabetical") {
+  //     sortedItems.sort((a, b) => (a.name.localeCompare(b.name)));
+  //   }
+  //   setSortedProducts(sortedItems);
 
-    if (selectedOption === "lowToHigh") {
-      sortedItems.sort((a, b) => a.price - b.price);
-    } else if (selectedOption === "alphabetical") {
-      sortedItems.sort((a, b) => (a.name.localeCompare(b.name)));
-    }
-    setSortedProducts(sortedItems);
-  };
+  //   const searchedProducts =  searchProducts(sortedItems);
+  //   setSortedProducts(searchedProducts);
+  // };
+  // const sortItemByPrice = () => {
+  //   const sortedItems = [...sortedProducts, ...sortPrice ]
+  //   const pricItem = sortedItems.sort((a, b ) => a.price - b.price);
+  //   if(pricItem){
+  //     setSortPrice(allProducts);
+  //     setSortedProducts("");
 
-  // sortera product enligt namn
-  const filterProduct = (e) => {
-    setSearchItem(e.target.value.toLowerCase());
-  };
+  //   }
+  //   console.log(pricItem);
+   
+  // }
+
+ 
+
   const searchProducts = () => {
-    let searchProduct = allProducts.filter((product) =>
+    // const selected = [...allProducts, ...searchItem];
+
+    const filter = allProducts.filter((product) =>
       product.name.toLowerCase().includes(searchItem)
     );
-    console.log(searchProduct);
-    return searchProduct;
+    setSortedProducts(filter);
+    console.log(filter);
+    return filter
   };
 
+  const handleSearchInputChange = (e) => {
+    setSearchItem(e.target.value.toLowerCase());
+    if (e.target.value.trim() === "") {
+      setSortedProducts(allProducts); // Show all products when search input is empty
+    }
+  };
   //sortera enligt pris
 
   // const lowToHighPrice =() =>{
@@ -61,30 +88,33 @@ function BringData() {
   //  return productSortedByPrice
 
   // }
-  // const sortProducts = handleSortedChange(searchProducts);
+    // const sortProducts = sortedProducts(sortPrice);
 
   return (
     <section>
+      {isLogined ? <p className="loggar-ut" onClick={() => navigate(-2)}>logga ut</p> : null}
       <div className="feature-item">
+      <button className="allproducts-btn" onClick={handleSearchInputChange} >Alla products</button>
         <div className="search-item">
+          
           <input
             type="text"
-            onChange={filterProduct}
+            onChange={handleSearchInputChange }
             className="search-input"
             placeholder="Sök"
           />
           <IoSearchOutline className="search-icon" onClick={searchProducts} />
         </div>
 
-        <select onChange={handleSortedChange}>
-          <option value="">Filter</option>
-          <option value="lowToHigh">bil-dyr</option>
-          <option value="alphabatical"> a-ö</option>
-        </select>
+       
+      
+          {/* <button type="button" >bil-dyr</button>
+          <button value="alphabatical"> a-ö</button> */}
+        
       </div>
       <ul className="container">
-        {sortedproducts &&
-          sortedproducts.map((item, id) => (
+        {sortedProducts &&
+          sortedProducts.map((item, id) => (
             <li
               onClick={() => {
                 handleClick(item.id);

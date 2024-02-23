@@ -21,7 +21,13 @@
 .cart-shop{
     font-size: 2em;
 }
-
+.cart-plus{
+    position: relative;
+    right: .6em;
+    bottom: 1em;
+    color: red;
+    font-size: 1.2em;
+}
 
 .nav-header a {
     text-decoration: none;

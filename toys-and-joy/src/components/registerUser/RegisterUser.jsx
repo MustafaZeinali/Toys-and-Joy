@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import addUser from "../../data/addUser.js";
 import { shopId } from "../../data/constant.js";
-import './RegisterUser.css';
+
+
+
 const RegisterUser = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [repeatedPassword, setRepeatedPassword] = useState("");
-  
+ 
 
   console.log('it is adding 11...');
     

@@ -3,11 +3,12 @@
 .form-details{
     display: flex;
     justify-content: center;
-    
-    margin: 2em ;
+    align-items: center;
+    margin: 2em 0em;
     
 }
 
+/* users  */
 .item-container{
     display: flex;
     flex-direction: column;
@@ -15,15 +16,25 @@
     flex-wrap: wrap;
     background-color:rgb(136, 179, 237);
     border-radius: 10px;
+    margin: 1em 1em;
 }
-.item-details-name , .item-details-price , .img-item {
-    margin: .6em;
+.item-details-description , .item-details-price , .img-item {
+    padding: 1.3em;
+
    
+}
+.item-details-container{
+    display: flex;
+    flex-direction: column;
+   
+    align-items: center;
 }
 .img-item {
     width: 90%;
     object-fit: contain;
     border-radius: 10px;
+    padding: 1em;
+    margin: 1em;
 }
 .btn-details {
     padding: 1em 2em;
@@ -34,3 +45,40 @@
     background-color: rgb(65, 174, 127);
     color: #fff;
 }
+/*  Admin is login */
+.input-details-container {
+    background-color: rgb(187, 190, 184);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: clamp(20em, 50% , 40em);
+    
+}
+
+.input-details{
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.input-name-details , .input-price-details {
+    width: 17em;
+    height: 2em;
+}
+.textarea-description-details{
+    position: relative;
+    right: 2em;
+    align-self: center;
+    height: 6em;
+    width: clamp(17em,50%,35em);
+   
+
+}
+.label-description{
+    position: relative;
+    right: 1.6em;
+}
+.red{
+    background-color: rgb(226, 103, 103);
+}
+

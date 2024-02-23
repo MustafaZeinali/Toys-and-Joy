@@ -17,6 +17,13 @@
 .u-1 h2 {
     margin-top: 1em;
 }
+.loggar-ut{
+    position: fixed;
+    right: 0;
+    margin-right:1em ;
+    cursor: pointer;
+    font-weight: bold;
+}
 .u-1 section li {
     display: flex;
     justify-content: space-between;
